@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mejes Café | Good food. Real flavour. African soul.</title>
+<meta name="description" content="Mejes Café, Hifadhi House, ICD Road, Nairobi. Brunch, grills, fish, coffee and wine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#16352a; --green2:#24503f; --paper:#fbf6ec; --ink:#1d1a16; --chili:#b3321c; --sun:#e3a72f; --line:#e4d9c3; --muted:#6b6254;
+  --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.55}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--serif);line-height:1.05}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:var(--green)}
+section{padding:72px 0}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 1rem var(--sans);padding:13px 22px;border-radius:999px;background:var(--chili);color:#fff;text-decoration:none;transition:.2s}
+.btn:hover{background:#962713;transform:translateY(-1px)}
+.btn.alt{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 2px var(--paper)}
+.btn.alt2{background:transparent;color:var(--green);box-shadow:inset 0 0 0 2px var(--green)}
+.btn.alt2:hover{background:var(--line)}
+
+/* ===== NAV ===== */
+header{position:sticky;top:0;z-index:30;background:var(--green);color:var(--paper)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 1.45rem var(--serif)}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{font-weight:500;opacity:.9}
+.nav-links a:hover{opacity:1}
+.cartbtn{background:var(--sun);color:var(--ink);border:0;border-radius:999px;padding:8px 16px;font:700 .95rem var(--sans);cursor:pointer}
+.hamburger{display:none;background:none;border:0;color:var(--paper);font-size:1.6rem;cursor:pointer}
+
+@media(max-width:780px){
+  .hamburger{display:block}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--green);flex-direction:column;padding:20px;gap:16px;transform:translateY(-120%);transition:.3s;box-shadow:0 10px 30px #0004}
+  .nav-links.open{transform:none}
+  .nav-links a.l{display:block}
+}
+
+/* ===== HERO ===== */
+.hero{background:var(--green);color:var(--paper);padding:70px 0 0;overflow:hidden;position:relative}
+.hero h1{font-size:clamp(2.8rem,8vw,5.8rem);font-weight:800;max-width:12ch}
+.hero h1 em{display:block;color:var(--sun);font-style:italic;font-weight:600}
+.hero p{max-width:46ch;margin:22px 0 28px;font-size:1.15rem;color:#e6dfcf}
+.status{display:inline-flex;gap:8px;align-items:center;font-weight:700;background:#ffffff18;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+.dot{width:10px;height:10px;border-radius:50%;background:#888}
+.dot.on{background:#5fd38a;box-shadow:0 0 0 4px #5fd38a33}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.kente{height:54px;margin-top:56px;background:
+ linear-gradient(135deg,var(--sun) 25%,transparent 25%) -27px 0/54px 54px,
+ linear-gradient(225deg,var(--chili) 25%,transparent 25%) -27px 0/54px 54px,
+ linear-gradient(315deg,var(--sun) 25%,transparent 25%) 0 0/54px 54px,
+ linear-gradient(45deg,var(--chili) 25%,var(--green2) 25%) 0 0/54px 54px;background-color:var(--green2)}
+.fl{position:absolute;width:140px;height:140px;animation:sway 7s ease-in-out infinite;opacity:.7}
+.f1{right:5%;top:30px;color:#e88fa8}.f2{right:18%;top:150px;width:90px;height:90px;color:var(--sun);animation-delay:-3s}
+@keyframes sway{50%{transform:rotate(14deg)}}
+@media(max-width:700px){.fl{opacity:.3}}
+
+/* ===== MENU ===== */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 14px}
+.tab{border:2px solid var(--green);background:transparent;color:var(--green);padding:7px 16px;border-radius:999px;font:700 .95rem var(--sans);cursor:pointer;transition:.15s}
+.tab[aria-pressed=true],.tab:hover{background:var(--green);color:var(--paper)}
+#search{width:100%;max-width:340px;padding:12px 18px;border:2px solid var(--line);border-radius:999px;font:1rem var(--sans);background:#fff;margin-bottom:18px}
+.items{list-style:none;padding:0;display:grid;gap:12px}
+.item{display:flex;gap:16px;align-items:center;background:#fff;border-radius:16px;padding:14px;border:1px solid var(--line);transition:.2s}
+.item:hover{box-shadow:0 8px 24px #0001;transform:translateY(-2px)}
+.item img{width:78px;height:78px;object-fit:cover;border-radius:12px;flex-shrink:0;background:#eee}
+.item .info{flex:1;min-width:0}
+.item .n{font:600 1.15rem var(--serif);display:block}
+.item .d{color:var(--muted);font-size:.9rem;display:block;margin-top:2px}
+.item .p{font-weight:700;white-space:nowrap;margin-right:8px}
+.add{background:var(--green);color:var(--paper);border:0;width:38px;height:38px;border-radius:50%;font:700 1.35rem var(--sans);cursor:pointer;flex:none;transition:.15s}
+.add:hover{background:var(--chili);transform:scale(1.08)}
+.note{color:var(--muted);font-size:.9rem;margin-top:18px}
+
+/* ===== WINE ===== */
+.wine{background:var(--green);color:var(--paper)}
+.wine h2{color:var(--sun)}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:30px;border-top:1px solid #ffffff44}
+.wgrid div{padding:24px 22px 24px 0;border-bottom:1px solid #ffffff44}
+.wgrid h3{font-size:1.5rem;margin-bottom:6px}
+.wgrid b{color:var(--sun);font-weight:500;display:block;margin-top:10px;font-size:.92rem}
+.pick{margin-top:30px;background:#ffffff14;border-radius:14px;padding:22px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.pick select{padding:10px 14px;border-radius:10px;font:1rem var(--sans);border:0;margin-right:10px}
+#pairout{font:600 1.15rem var(--serif);max-width:52ch}
+.moods{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+#moodout{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font:600 1.1rem var(--serif);min-height:34px}
+.wine .tab{border-color:var(--sun);color:var(--sun)}.wine .add{background:var(--sun);color:var(--ink)}
+
+/* ===== GARDEN ===== */
+.amb{padding:0}
+.garden{position:relative;overflow:hidden;background:#f4dcd6;padding:64px 0;cursor:crosshair}
+.garden p{max-width:52ch;margin-top:12px}
+.bloom{position:absolute;width:48px;height:48px;animation:grow .5s ease-out;pointer-events:none}
+@keyframes grow{from{transform:scale(0) rotate(-90deg)}}
+
+/* ===== FORMS ===== */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:760px){.visit{grid-template-columns:1fr}}
+.facts{list-style:none;padding:0;margin:20px 0}
+.facts li{padding:10px 0;border-bottom:1px solid var(--line)}
+.facts b{display:inline-block;min-width:90px}
+form{display:grid;gap:12px}
+input,textarea,select.f{width:100%;padding:12px 14px;border:2px solid var(--line);border-radius:10px;font:1rem var(--sans);background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rev{background:#fff;border-left:5px solid var(--sun);padding:16px 20px;margin-top:20px;border-radius:0 10px 10px 0}
+.evgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0}
+.ev{border:2px solid var(--green);background:#fff;border-radius:12px;padding:16px;text-align:left;font:700 1rem var(--serif);cursor:pointer;color:var(--green);transition:.15s}
+.ev small{display:block;font:400 .85rem var(--sans);color:var(--muted);margin-top:4px}
+.ev[aria-pressed=true]{background:var(--green);color:var(--paper)}.ev[aria-pressed=true] small{color:#cfd8d0}
+.sum{list-style:none;padding:0;margin:14px 0}.sum li{padding:6px 0;border-bottom:1px solid var(--line)}
+.chk{display:flex;gap:10px;align-items:flex-start}.chk input,.xs input{width:auto}.chk input{margin-top:5px}
+.xs{display:flex;gap:14px;flex-wrap:wrap}.xs label{display:flex;gap:6px;align-items:center}
+.formmsg{color:var(--chili);font-weight:700;min-height:1.3em}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font-size:.9rem}
+
+/* ===== CART DRAWER ===== */
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(390px,100%);background:#fff;z-index:50;transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column;box-shadow:-8px 0 30px #0003}
+#drawer.open{transform:none}
+#drawer header{background:var(--green);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:static}
+#cartlist{flex:1;overflow:auto;padding:12px 20px;list-style:none}
+#cartlist li{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.q button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700}
+.cf{padding:18px 20px;border-top:2px solid var(--green)}
+.cf .tot{display:flex;justify-content:space-between;font:800 1.35rem var(--serif);margin-bottom:12px}
+.xbtn{background:none;border:0;color:var(--paper);font-size:1.7rem;cursor:pointer;line-height:1}
+
+/* ===== CHAT ===== */
+#fab{position:fixed;right:20px;bottom:20px;z-index:40;background:var(--chili);color:#fff;border:0;border-radius:999px;padding:14px 22px;font:700 1rem var(--sans);cursor:pointer;box-shadow:0 6px 20px #0004;transition:.2s}
+#fab:hover{transform:scale(1.05)}
+#chat{position:fixed;right:20px;bottom:20px;z-index:45;width:min(390px,calc(100% - 24px));height:min(580px,calc(100% - 40px));background:#fff;border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px #0005}
+#chat.open{display:flex}
+.ch{background:var(--green);color:var(--paper);padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.ch b{font:800 1.15rem var(--serif)}
+#log{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--paper)}
+.m{max-width:85%;padding:10px 14px;border-radius:16px;white-space:pre-line;font-size:.97rem}
+.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.me{background:var(--green);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;border-top:1px solid var(--line);background:#fff}
+.chips button{border:1.5px solid var(--green);background:#fff;color:var(--green);border-radius:999px;padding:5px 12px;font:600 .85rem var(--sans);cursor:pointer}
+.chips button:hover{background:var(--green);color:#fff}
+.cin{display:flex;gap:8px;padding:10px 12px;background:#fff;border-top:1px solid var(--line)}
+.cin input{border-radius:999px;flex:1}
+.typing{opacity:.6;font-style:italic}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Mejes Café</a>
+    <button class="hamburger" id="ham" aria-label="Menu">☰</button>
+    <nav class="nav-links" id="navlinks">
+      <a class="l" href="#menu">Menu</a>
+      <a class="l" href="#wine">Bar</a>
+      <a class="l" href="#delivery">Delivery</a>
+      <a class="l" href="#events">Events</a>
+      <a class="l" href="#visit">Visit</a>
+      <button class="cartbtn" id="cartbtn" aria-label="Open your order">Order (<span id="cc">0</span>)</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Flower SVG symbol -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="fl" viewBox="-50 -50 100 100">
+      <g fill="currentColor">
+        <ellipse cy="-26" rx="12" ry="22"/>
+        <ellipse cy="-26" rx="12" ry="22" transform="rotate(60)"/>
+        <ellipse cy="-26" rx="12" ry="22" transform="rotate(120)"/>
+        <ellipse cy="-26" rx="12" ry="22" transform="rotate(180)"/>
+        <ellipse cy="-26" rx="12" ry="22" transform="rotate(240)"/>
+        <ellipse cy="-26" rx="12" ry="22" transform="rotate(300)"/>
+      </g>
+      <circle r="10" fill="#fbf6ec"/>
+    </symbol>
+  </svg>
+
+  <!-- HERO -->
+  <div class="hero">
+    <svg class="fl f1" aria-hidden="true"><use href="#fl"/></svg>
+    <svg class="fl f2" aria-hidden="true"><use href="#fl"/></svg>
+    <div class="wrap">
+      <div class="status"><span class="dot" id="dot"></span><span id="stat">Checking hours…</span></div>
+      <h1>Good food. Real flavour. <em>African soul.</em></h1>
+      <p>Freshly made, perfectly served. Brunch, grills, fish and ugali, with coffee, wine, whiskey and live music at Hifadhi House, ICD Road.</p>
+      <div class="cta">
+        <a class="btn" href="#menu">Build your order</a>
+        <button class="btn alt" id="askhero">Ask our assistant</button>
+      </div>
+    </div>
+    <div class="kente" aria-hidden="true"></div>
+  </div>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="wrap">
+      <h2>The menu</h2>
+      <div class="tabs" id="tabs" role="group" aria-label="Menu categories"></div>
+      <input id="search" type="search" placeholder="Search the menu…" aria-label="Search the menu">
+      <ul class="items" id="items"></ul>
+      <p class="note">Tap + to add to your order. Prices in Ksh. Some bar items are confirmed by the team.</p>
+    </div>
+  </section>
+
+  <!-- WINE & BAR -->
+  <section class="wine" id="wine">
+    <div class="wrap">
+      <h2>Wine, whiskey and the full bar</h2>
+      <p style="max-width:56ch;margin-top:12px;color:#e6dfcf">Pick what you are eating and we will suggest a style. Ask the team for today’s labels.</p>
+      <div class="wgrid">
+        <div><h3>Red</h3>Soft, fruit-forward bottles for grills and stews.<b>Try with chicken, beef, pilau</b></div>
+        <div><h3>White</h3>Crisp and cold for fish and lighter plates.<b>Try with tilapia, salmon, salad</b></div>
+        <div><h3>Rosé</h3>Easy sipping for long brunches.<b>Try with breakfast, snacks</b></div>
+        <div><h3>Sparkling</h3>For birthdays and good news.<b>Try with samosas, fish fingers</b></div>
+      </div>
+      <div class="pick">
+        <div>
+          <label for="food" style="font-weight:700">I am eating </label>
+          <select id="food">
+            <option value="">Choose a dish</option>
+            <option>Nyama choma / grilled chicken</option>
+            <option>Fish</option>
+            <option>Pilau or rice</option>
+            <option>Ugali and stew</option>
+            <option>Burger and chips</option>
+            <option>Brunch</option>
+            <option>Dessert</option>
+          </select>
+          <button class="btn" id="pairbtn" style="background:var(--sun);color:var(--ink)">Suggest a wine</button>
+        </div>
+        <p id="pairout" aria-live="polite"></p>
+      </div>
+      <div class="pick" style="flex-direction:column;align-items:flex-start">
+        <b>What is the mood?</b>
+        <div class="moods" id="moods"></div>
+        <div id="moodout" aria-live="polite"></div>
+      </div>
+      <div class="tabs" id="browse" style="margin-top:24px">
+        <button class="tab" data-go="Wine">Browse wine</button>
+        <button class="tab" data-go="Whiskey">Browse whiskey</button>
+        <button class="tab" data-go="Spirits">Spirits</button>
+        <button class="tab" data-go="Beer & Cider">Beer and cider</button>
+        <button class="tab" data-go="Cocktails">Cocktails</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARDEN -->
+  <section class="amb" id="ambience">
+    <div class="garden" id="garden">
+      <div class="wrap">
+        <h2>Flowers on the tables, music in the air</h2>
+        <p>Bright blooms, warm light and an easy crowd. It suits a slow brunch as well as an evening with a good glass in hand.</p>
+        <p class="note">Tap anywhere on this panel to plant a flower.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY -->
+  <section id="delivery" style="background:#fff">
+    <div class="wrap visit">
+      <div>
+        <h2>Delivery</h2>
+        <p style="margin-top:12px;max-width:44ch">Food, wine, whiskey and more, brought to your door. Add items from the menu, then send the request. Our team confirms the fee and timing on WhatsApp.</p>
+        <ul class="sum" id="dsum"></ul>
+        <button class="btn alt2" type="button" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Add more items</button>
+      </div>
+      <form id="dform">
+        <input name="name" placeholder="Your name" required aria-label="Your name">
+        <input name="phone" type="tel" placeholder="Phone number" required aria-label="Phone number">
+        <select class="f" name="area" aria-label="Area">
+          <option>Industrial Area</option>
+          <option>South B / South C</option>
+          <option>Embakasi</option>
+          <option>CBD</option>
+          <option>Westlands</option>
+          <option>Other (tell us below)</option>
+        </select>
+        <input name="addr" placeholder="Building, street and landmark" required aria-label="Delivery address">
+        <div class="two">
+          <select class="f" name="pay" aria-label="Payment">
+            <option>M-Pesa</option>
+            <option>Cash on delivery</option>
+            <option>Card on delivery</option>
+          </select>
+          <input type="time" name="time" aria-label="Preferred time">
+        </div>
+        <label class="chk" id="agebox" style="display:none">
+          <input type="checkbox" name="age"> I am 18 or older and will show ID for alcohol.
+        </label>
+        <textarea name="note" rows="2" placeholder="Gate code, allergies, anything else" aria-label="Notes"></textarea>
+        <button class="btn" type="submit">Send delivery request</button>
+        <p class="formmsg" id="dmsg" role="alert"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="wrap">
+      <h2>Host your event here</h2>
+      <p style="margin-top:12px;max-width:56ch">Flowers, live music and a full bar can all be part of it. Pick an event type, then tell us the details.</p>
+      <div class="evgrid" id="evgrid">
+        <button class="ev" data-ev="Birthday" aria-pressed="false">Birthday<small>Cake, bubbly, music</small></button>
+        <button class="ev" data-ev="Bridal or baby shower" aria-pressed="false">Bridal or baby shower<small>Flowers everywhere</small></button>
+        <button class="ev" data-ev="Corporate evening" aria-pressed="false">Corporate evening<small>Drinks and bites</small></button>
+        <button class="ev" data-ev="Proposal or date night" aria-pressed="false">Proposal or date night<small>Quiet corner, candles</small></button>
+        <button class="ev" data-ev="Live music night" aria-pressed="false">Live music night<small>Bring the crowd</small></button>
+        <button class="ev" data-ev="Other" aria-pressed="false">Something else<small>Tell us your idea</small></button>
+      </div>
+      <form id="evform" style="max-width:560px">
+        <div class="two">
+          <input name="name" placeholder="Your name" required aria-label="Your name">
+          <input name="phone" type="tel" placeholder="Phone number" required aria-label="Phone number">
+        </div>
+        <div class="two">
+          <input type="date" name="date" required aria-label="Event date">
+          <input type="number" name="guests" min="2" placeholder="Number of guests" required aria-label="Number of guests">
+        </div>
+        <div class="xs">
+          <label><input type="checkbox" name="x" value="Flower decor">Flower décor</label>
+          <label><input type="checkbox" name="x" value="Live music">Live music</label>
+          <label><input type="checkbox" name="x" value="Cake">Cake</label>
+          <label><input type="checkbox" name="x" value="Bar package">Bar package</label>
+          <label><input type="checkbox" name="x" value="Kids menu">Kids’ menu</label>
+        </div>
+        <textarea name="note" rows="2" placeholder="Anything else we should know" aria-label="Notes"></textarea>
+        <button class="btn" type="submit">Send event enquiry</button>
+        <p class="formmsg" id="evmsg" role="alert"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="wrap visit">
+      <div>
+        <h2>Come by</h2>
+        <ul class="facts">
+          <li><b>Where</b> Hifadhi House, ICD Road, Nairobi</li>
+          <li><b>Opens</b> 7:30 am daily</li>
+          <li><b>Call</b> <a href="tel:+254117974420">0117 974420</a></li>
+          <li><b>Good for</b> Brunch, happy-hour food, live music, kids’ menu</li>
+          <li><b>Typical spend</b> Ksh 1,200–1,800 a person</li>
+        </ul>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mejes+Cafe+Hifadhi+House+ICD+Road+Nairobi">Get directions</a>
+        <div class="rev"><b>5.0 on Google</b> from recent reviews. Guests rate it five stars.</div>
+      </div>
+      <div>
+        <h2>Book a table</h2>
+        <form id="resv" style="margin-top:20px">
+          <input name="name" placeholder="Your name" required aria-label="Your name">
+          <div class="two">
+            <input type="date" name="date" required aria-label="Date">
+            <input type="time" name="time" required aria-label="Time">
+          </div>
+          <select class="f" name="guests" aria-label="Guests">
+            <option>2 guests</option>
+            <option>3 guests</option>
+            <option>4 guests</option>
+            <option>5 to 8 guests</option>
+            <option>9+ guests</option>
+          </select>
+          <textarea name="note" rows="2" placeholder="Birthday, wine, kids’ seats…" aria-label="Notes"></textarea>
+          <button class="btn" type="submit">Send booking on WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Mejes Café · Hifadhi House, ICD Road, Nairobi · 0117 974420<br>
+  Made with African love.
+</footer>
+
+<!-- CART DRAWER -->
+<aside id="drawer" aria-label="Your order">
+  <header>
+    <b style="font:800 1.25rem var(--serif)">Your order</b>
+    <button class="xbtn" id="closecart" aria-label="Close">×</button>
+  </header>
+  <ul id="cartlist"></ul>
+  <div class="cf">
+    <div class="tot"><span>Total</span><span id="total">Ksh 0</span></div>
+    <p id="unp" class="note" style="margin:0 0 12px"></p>
+    <button class="btn" id="todeliv" style="width:100%;margin-bottom:8px">Request delivery</button>
+    <button class="btn alt2" id="checkout" style="width:100%">Pick up / Dine in → WhatsApp</button>
+  </div>
+</aside>
+
+<!-- CHAT -->
+<button id="fab">Chat with Mejes</button>
+<section id="chat" aria-label="Chat assistant" style="padding:0">
+  <div class="ch">
+    <b>Mejes assistant</b>
+    <button class="xbtn" id="closechat" aria-label="Close chat">×</button>
+  </div>
+  <div id="log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form class="cin" id="cform">
+    <input id="cin" placeholder="Ask about food, wine, hours…" autocomplete="off" aria-label="Message">
+    <button class="btn" style="padding:10px 18px">Send</button>
+  </form>
+</section>
+
+<script>
+/* ===================== CONFIG ===================== */
+const PHONE_WA = '254117974420';
+const OPEN_HOUR = 7.5;
+const CLOSE_HOUR = 22;
+
+/* ===================== MENU DATA ===================== */
+const MENU = [
+  // Breakfast
+  {id:0, cat:'Breakfast', name:'Full breakfast', desc:'Boiled egg, sausage, toast & sides', price:450, img:'https://images.unsplash.com/photo-1533089867894-c4c7b8d1c2f0?w=200&h=200&fit=crop'},
+  {id:1, cat:'Breakfast', name:'Omelette', desc:'3-egg omelette with choice of fillings', price:280, img:'https://images.unsplash.com/photo-1510693206959-140aaad7cdd0?w=200&h=200&fit=crop'},
+  // Coffee
+  {id:2, cat:'Coffee', name:'Espresso', desc:'Single shot', price:200, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:3, cat:'Coffee', name:'Americano', desc:'Single', price:250, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:4, cat:'Coffee', name:'Cappuccino', desc:'Single', price:300, img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=200&fit=crop'},
+  {id:5, cat:'Coffee', name:'Latte', desc:'Smooth & creamy', price:320, img:'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=200&h=200&fit=crop'},
+  // Mains
+  {id:6, cat:'Mains', name:'Half chicken + ugali', desc:'Grilled half chicken with ugali', price:650, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:7, cat:'Mains', name:'Half chicken + chips', desc:'With crispy chips', price:700, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:8, cat:'Mains', name:'Quarter chicken + chips + salad', desc:'Perfect portion', price:550, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:9, cat:'Mains', name:'Full cooked chicken', desc:'Whole bird, great for sharing', price:1100, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:10, cat:'Mains', name:'Chicken curry', desc:'Served with rice or ugali', price:550, img:'https://images.unsplash.com/photo-1565557623262-b51c2513a695?w=200&h=200&fit=crop'},
+  {id:11, cat:'Mains', name:'Burger', desc:'Juicy beef or chicken burger with chips', price:750, img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop'},
+  {id:12, cat:'Mains', name:'Chips', desc:'Crispy golden fries', price:200, img:'https://images.unsplash.com/photo-1573080496689-880f3d0d8b55?w=200&h=200&fit=crop'},
+  {id:13, cat:'Mains', name:'Chips masala', desc:'Spicy masala fries', price:280, img:'https://images.unsplash.com/photo-1573080496689-880f3d0d8b55?w=200&h=200&fit=crop'},
+  // Fish
+  {id:14, cat:'Fish', name:'Medium fish with ugali', desc:'Fresh tilapia style', price:750, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
+  {id:15, cat:'Fish', name:'Medium fish with rice', desc:'With fragrant rice', price:800, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
+  {id:16, cat:'Fish', name:'Grilled salmon and rice', desc:'Premium salmon with mixed veg', price:1850, img:'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&h=200&fit=crop'},
+  // Rice & Ugali
+  {id:17, cat:'Rice & Ugali', name:'Pilau', desc:'Fragrant spiced rice', price:400, img:'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=200&h=200&fit=crop'},
+  {id:18, cat:'Rice & Ugali', name:'Rice', desc:'Plain white rice', price:200, img:'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&h=200&fit=crop'},
+  {id:19, cat:'Rice & Ugali', name:'Ugali with beef', desc:'Classic comfort', price:450, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:20, cat:'Rice & Ugali', name:'Ugali with beans', desc:'Hearty & filling', price:300, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  // Snacks
+  {id:21, cat:'Snacks', name:'Samosas', desc:'Crispy beef or veg (2 pcs)', price:150, img:'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&h=200&fit=crop'},
+  {id:22, cat:'Snacks', name:'Fresh fruit salad', desc:'Seasonal fruits', price:300, img:'https://images.unsplash.com/photo-1564093497595-593b96bc6814?w=200&h=200&fit=crop'},
+  // Soft Drinks
+  {id:23, cat:'Soft Drinks', name:'Black tea', desc:'Kenyan tea', price:120, img:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&h=200&fit=crop'},
+  {id:24, cat:'Soft Drinks', name:'Milkshake', desc:'Vanilla or strawberry', price:380, img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&h=200&fit=crop'},
+  {id:25, cat:'Soft Drinks', name:'Soda', desc:'Assorted soft drinks', price:150, img:'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=200&h=200&fit=crop'},
+  {id:26, cat:'Soft Drinks', name:'Fresh juice', desc:'Orange, passion or mixed', price:250, img:'https://images.unsplash.com/photo-1621506280935-1f55a2b8d0f4?w=200&h=200&fit=crop'},
+  {id:27, cat:'Soft Drinks', name:'Mineral water', desc:'500ml', price:100, img:'https://images.unsplash.com/photo-1560023907-5e59648bfcc2?w=200&h=200&fit=crop'},
+  // Whiskey
+  {id:28, cat:'Whiskey', name:'Johnnie Walker Black Label', desc:'Tot / Bottle', price:950, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:29, cat:'Whiskey', name:'Jameson', desc:'Tot / Bottle', price:850, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:30, cat:'Whiskey', name:"Jack Daniel's", desc:'Tot / Bottle', price:900, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:31, cat:'Whiskey', name:'Glenfiddich 12', desc:'Tot / Bottle', price:1400, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:32, cat:'Whiskey', name:'Chivas Regal 12', desc:'Tot / Bottle', price:1100, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  // Wine
+  {id:33, cat:'Wine', name:'Red wine (glass)', desc:"Today's house red", price:850, img:'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop'},
+  {id:34, cat:'Wine', name:'Red wine (bottle)', desc:'Ask for labels', price:3200, img:'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop'},
+  {id:35, cat:'Wine', name:'White wine (glass)', desc:"Today's house white", price:850, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+  {id:36, cat:'Wine', name:'White wine (bottle)', desc:'Ask for labels', price:3200, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+  {id:37, cat:'Wine', name:'Rosé (bottle)', desc:'Perfect for brunch', price:3500, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+  {id:38, cat:'Wine', name:'Sparkling (bottle)', desc:'Celebrations', price:4200, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+  // Spirits
+  {id:39, cat:'Spirits', name:'Vodka', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:40, cat:'Spirits', name:'Gin and tonic', desc:'Classic G&T', price:750, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:41, cat:'Spirits', name:'Brandy', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:42, cat:'Spirits', name:'Tequila', desc:'Tot', price:800, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:43, cat:'Spirits', name:'Rum', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  // Beer & Cider
+  {id:44, cat:'Beer & Cider', name:'Tusker', desc:'500ml', price:350, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:45, cat:'Beer & Cider', name:'White Cap', desc:'500ml', price:350, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:46, cat:'Beer & Cider', name:'Guinness', desc:'500ml', price:400, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:47, cat:'Beer & Cider', name:'Heineken', desc:'330ml', price:400, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:48, cat:'Beer & Cider', name:'Savanna cider', desc:'330ml', price:380, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  // Cocktails
+  {id:49, cat:'Cocktails', name:'Dawa', desc:'Vodka, honey, lime – Kenyan classic', price:850, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:50, cat:'Cocktails', name:'Mojito', desc:'Fresh mint & lime', price:900, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:51, cat:'Cocktails', name:'Margarita', desc:'Classic or spicy', price:950, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:52, cat:'Cocktails', name:'Mimosa', desc:'Perfect brunch drink', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:53, cat:'Cocktails', name:'Sangria', desc:'Fruit-packed', price:850, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'}
+];
+
+const PAIRS = {
+  'Nyama choma / grilled chicken': 'A soft, juicy red. It handles smoky char without fighting it.',
+  'Fish': 'A crisp, cold white with good acidity. Squeeze of lemon, sip, repeat.',
+  'Pilau or rice': 'A medium-bodied red with spice-friendly fruit, or a dry rosé.',
+  'Ugali and stew': 'A rounded red. Skip anything too tannic.',
+  'Burger and chips': 'A fruity red, or sparkling to cut the salt.',
+  'Brunch': 'Sparkling or a light rosé. It is brunch.',
+  'Dessert': 'A sweet sparkling, or just coffee.'
+};
+
+const cats = ['All', ...new Set(MENU.map(m => m.cat))];
+const ALC = ['Whiskey','Wine','Spirits','Beer & Cider','Cocktails'];
+const KES = n => n ? 'Ksh ' + n.toLocaleString() : 'Ask';
+const $ = id => document.getElementById(id);
+
+let cat = 'All', q = '', cart = {};
+
+/* ===================== STATUS ===================== */
+function status() {
+  const t = new Date(new Date().toLocaleString('en-US', {timeZone: 'Africa/Nairobi'}));
+  const h = t.getHours() + t.getMinutes()/60;
+  const on = h >= OPEN_HOUR && h < CLOSE_HOUR;
+  $('dot').className = 'dot' + (on ? ' on' : '');
+  $('stat').textContent = on ? 'Open now · until 10 pm' : 'Closed · opens 7:30 am';
+  return on;
+}
+status();
+setInterval(status, 60000);
+
+/* ===================== MENU RENDER ===================== */
+function renderTabs() {
+  $('tabs').innerHTML = cats.map(c => 
+    `<button class="tab" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`
+  ).join('');
+}
+
+function renderMenu() {
+  const list = MENU.filter(m => 
+    (cat === 'All' || m.cat === cat) && 
+    (m.name + ' ' + m.desc).toLowerCase().includes(q)
+  );
+  $('items').innerHTML = list.length ? list.map(m => `
+    <li class="item">
+      <img src="${m.img}" alt="${m.name}" loading="lazy">
+      <div class="info">
+        <span class="n">${m.name}</span>
+        ${m.desc ? `<span class="d">${m.desc}</span>` : ''}
+      </div>
+      <span class="p">${KES(m.price)}</span>
+      <button class="add" data-id="${m.id}" aria-label="Add ${m.name}">+</button>
+    </li>
+  `).join('') : '<li style="padding:20px;text-align:center;color:var(--muted)">Nothing matches. Try another word.</li>';
+}
+
+$('tabs').onclick = e => {
+  if (e.target.dataset.c) {
+    cat = e.target.dataset.c;
+    renderTabs();
+    renderMenu();
+  }
+};
+$('search').oninput = e => {
+  q = e.target.value.toLowerCase();
+  renderMenu();
+};
+$('items').onclick = e => {
+  if (e.target.dataset.id) add(+e.target.dataset.id);
+};
+
+renderTabs();
+renderMenu();
+
+/* ===================== CART ===================== */
+function wa(msg) {
+  window.open(`https://wa.me/${PHONE_WA}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function add(id, n = 1) {
+  cart[id] = (cart[id] || 0) + n;
+  if (cart[id] <= 0) delete cart[id];
+  renderCart();
+}
+
+function totals() {
+  const ids = Object.keys(cart);
+  let sum = 0, unp = 0, alc = false;
+  const lines = ids.map(i => {
+    const m = MENU[i], c = cart[i];
+    if (m.price) sum += m.price * c;
+    else unp++;
+    if (ALC.includes(m.cat)) alc = true;
+    return `${c} × ${m.name}${m.price ? ` (${KES(m.price * c)})` : ' (price to confirm)'}`;
+  });
+  return {ids, lines, sum, unp, alc};
+}
+
+function renderCart() {
+  const t = totals();
+  $('cc').textContent = t.ids.reduce((s, i) => s + cart[i], 0);
+  $('cartlist').innerHTML = t.ids.length ? t.ids.map(i => {
+    const m = MENU[i];
+    return `<li>
+      <span>${m.name}<br><small>${KES(m.price * cart[i])}</small></span>
+      <span class="q">
+        <button data-d="-1" data-i="${i}" aria-label="Remove one">−</button>
+        ${cart[i]}
+        <button data-d="1" data-i="${i}" aria-label="Add one">+</button>
+      </span>
+    </li>`;
+  }).join('') : '<li style="padding:20px;text-align:center;color:var(--muted)">Your order is empty.<br>Add something from the menu.</li>';
+  
+  $('total').textContent = 'Ksh ' + t.sum.toLocaleString() + (t.unp ? ' +' : '');
+  $('unp').textContent = t.unp ? 'Some items will be priced by our team.' : '';
+  $('dsum').innerHTML = t.ids.length ? t.lines.map(l => `<li>${l}</li>`).join('') : '<li>Nothing yet. Add items from the menu.</li>';
+  $('agebox').style.display = t.alc ? 'flex' : 'none';
+}
+
+$('cartlist').onclick = e => {
+  if (e.target.dataset.i) add(+e.target.dataset.i, +e.target.dataset.d);
+};
+$('cartbtn').onclick = () => $('drawer').classList.add('open');
+$('closecart').onclick = () => $('drawer').classList.remove('open');
+$('todeliv').onclick = () => {
+  $('drawer').classList.remove('open');
+  $('delivery').scrollIntoView({behavior:'smooth'});
+};
+$('checkout').onclick = () => {
+  const t = totals();
+  if (!t.ids.length) return;
+  wa(`Hi Mejes Café, I would like to order (pickup or dine-in):\n\n${t.lines.join('\n')}\n\nTotal: Ksh ${t.sum.toLocaleString()}${t.unp ? ' + items to be priced' : ''}`);
+};
+
+$('dform').onsubmit = e => {
+  e.preventDefault();
+  const t = totals(), f = new FormData(e.target);
+  if (!t.ids.length) {
+    $('dmsg').textContent = 'Add at least one item from the menu first.';
+    return;
+  }
+  if (t.alc && !f.get('age')) {
+    $('dmsg').textContent = 'Please confirm you are 18 or older.';
+    return;
+  }
+  $('dmsg').textContent = '';
+  wa(`DELIVERY REQUEST\n\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nArea: ${f.get('area')}\nAddress: ${f.get('addr')}\nPayment: ${f.get('pay')}\nTime: ${f.get('time') || 'As soon as possible'}\nNote: ${f.get('note') || 'None'}\n\nOrder:\n${t.lines.join('\n')}\n\nSubtotal: Ksh ${t.sum.toLocaleString()}${t.unp ? ' + items to be priced' : ''}`);
+};
+
+renderCart();
+
+/* ===================== EVENTS ===================== */
+let evType = '';
+$('evgrid').onclick = e => {
+  const b = e.target.closest('.ev');
+  if (!b) return;
+  evType = b.dataset.ev;
+  [...$('evgrid').children].forEach(c => c.setAttribute('aria-pressed', c === b));
+  $('evmsg').textContent = '';
+};
+$('evform').onsubmit = e => {
+  e.preventDefault();
+  if (!evType) {
+    $('evmsg').textContent = 'Please choose an event type first.';
+    return;
+  }
+  const f = new FormData(e.target);
+  wa(`EVENT ENQUIRY\n\nType: ${evType}\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nDate: ${f.get('date')}\nGuests: ${f.get('guests')}\nExtras: ${f.getAll('x').join(', ') || 'None'}\nNote: ${f.get('note') || 'None'}`);
+};
+
+/* ===================== GARDEN + MOODS ===================== */
+const GC = ['#b3321c','#e3a72f','#e88fa8','#ffffff','#8e5aa8'];
+$('garden').onclick = e => {
+  const g = $('garden'), r = g.getBoundingClientRect();
+  const v = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  v.setAttribute('class', 'bloom');
+  v.setAttribute('aria-hidden', 'true');
+  v.style.cssText = `left:${e.clientX - r.left - 24}px;top:${e.clientY - r.top - 24}px;color:${GC[Math.random()*GC.length|0]}`;
+  v.innerHTML = '<use href="#fl"/>';
+  g.appendChild(v);
+  const all = g.querySelectorAll('.bloom');
+  if (all.length > 40) all[0].remove();
+};
+
+const MOODS = {
+  'Celebrating': ['Sparkling (bottle)', 'Mimosa'],
+  'Winding down': ['Jameson', 'Red wine (glass)'],
+  'Date night': ['Rosé (bottle)', 'Mojito'],
+  'Closing a deal': ['Glenfiddich 12', 'Johnnie Walker Black Label'],
+  'A cold one': ['Tusker', 'White Cap']
+};
+$('moods').innerHTML = Object.keys(MOODS).map(k => 
+  `<button class="tab" data-m="${k}">${k}</button>`
+).join('');
+$('moods').onclick = e => {
+  const k = e.target.dataset.m;
+  if (!k) return;
+  $('moodout').innerHTML = MOODS[k].map(n => {
+    const m = MENU.find(x => x.name === n);
+    return m ? `<span>${m.name} <button class="add" data-mid="${m.id}" aria-label="Add ${m.name}">+</button></span>` : '';
+  }).join('');
+};
+$('moodout').onclick = e => {
+  if (e.target.dataset.mid) add(+e.target.dataset.mid);
+};
+
+$('browse').onclick = e => {
+  const c = e.target.dataset.go;
+  if (c) {
+    cat = c;
+    renderTabs();
+    renderMenu();
+    $('menu').scrollIntoView({behavior:'smooth'});
+  }
+};
+
+/* ===================== WINE PAIRING + BOOKING ===================== */
+$('pairbtn').onclick = () => {
+  const v = $('food').value;
+  $('pairout').textContent = v ? PAIRS[v] : 'Choose a dish first.';
+};
+
+$('resv').onsubmit = e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const msg = `Hi Mejes Café, I would like to book a table.\n\nName: ${f.get('name')}\nDate: ${f.get('date')} at ${f.get('time')}\nGuests: ${f.get('guests')}\nNote: ${f.get('note') || 'None'}`;
+  wa(msg);
+};
+
+/* ===================== MOBILE NAV ===================== */
+$('ham').onclick = () => $('navlinks').classList.toggle('open');
+$('navlinks').onclick = e => {
+  if (e.target.tagName === 'A' || e.target.classList.contains('cartbtn')) {
+    $('navlinks').classList.remove('open');
+  }
+};
+
+/* ===================== CHATBOT ===================== */
+const log = $('log'), chat = $('chat'), fab = $('fab');
+const CHIPS = ['What is open now?', 'Whiskey list', 'Wine suggestions', 'Delivery', 'Book an event', 'Best value meals'];
+
+function say(t, who = 'bot') {
+  const d = document.createElement('div');
+  d.className = 'm ' + who;
+  d.textContent = t;
+  log.appendChild(d);
+  log.scrollTop = log.scrollHeight;
+  return d;
+}
+
+function chips() {
+  $('chips').innerHTML = CHIPS.map(c => `<button type="button">${c}</button>`).join('');
+}
+
+function openChat() {
+  chat.classList.add('open');
+  fab.style.display = 'none';
+  if (!log.children.length) {
+    say('Karibu to Mejes Café! 🌿\n\nI can help with the menu, wine pairing, hours, directions, bookings and building your order.\n\nWhat would you like?');
+    chips();
+  }
+  $('cin').focus();
+}
+
+fab.onclick = openChat;
+$('askhero').onclick = openChat;
+$('closechat').onclick = () => {
+  chat.classList.remove('open');
+  fab.style.display = '';
+};
+$('chips').onclick = e => {
+  if (e.target.tagName === 'BUTTON') send(e.target.textContent);
+};
+$('cform').onsubmit = e => {
+  e.preventDefault();
+  const v = $('cin').value.trim();
+  if (v) {
+    $('cin').value = '';
+    send(v);
+  }
+};
+
+function has(s, ...w) {
+  return w.some(x => s.includes(x));
+}
+
+function localReply(text) {
+  const s = text.toLowerCase().replace('whisky', 'whiskey');
+  
+  // Delivery
+  if (has(s, 'deliver', 'bring to', 'home') && !has(s, 'add ')) {
+    $('delivery').scrollIntoView({behavior:'smooth'});
+    return 'Yes, we deliver! Add your items from the menu, then fill the delivery form. It goes straight to our team on WhatsApp and they confirm the fee and timing. I scrolled you there.';
+  }
+  
+  // Events
+  if (has(s, 'event', 'party', 'birthday', 'wedding', 'corporate', 'function', 'proposal', 'shower')) {
+    $('events').scrollIntoView({behavior:'smooth'});
+    return 'We love hosting events! Choose a type and fill the form below. Flowers, live music and bar packages are all available.';
+  }
+  
+  // Category list
+  const dc = cats.find(c => [...ALC, 'Soft Drinks', 'Coffee', 'Breakfast', 'Mains', 'Fish'].includes(c) && s.includes(c.toLowerCase().split(' ')[0]));
+  if (dc && !has(s, ' for ', ' with ', 'pair', 'eating', 'add')) {
+    cat = dc;
+    renderTabs();
+    renderMenu();
+    return `${dc}:\n` + MENU.filter(m => m.cat === dc).map(m => `• ${m.name}: ${KES(m.price)}`).join('\n') + '\n\nSay “add [name]” to put one in your order.';
+  }
+  
+  // Add to order
+  if (has(s, 'add ', 'order ', 'i want', 'i will have', "i'll have", 'give me')) {
+    const m = MENU.find(m => s.includes(m.name.toLowerCase().split(' ')[0]));
+    if (m) {
+      const n = +(s.match(/\b(\d+)\b/) || [0, 1])[1] || 1;
+      add(m.id, n);
+      return `Added ${n} × ${m.name}!\nCurrent total: ${$('total').textContent}\n\nSay “checkout” when you’re ready.`;
+    }
+    return 'Which dish? Try “add pilau” or “add half chicken”.';
+  }
+  
+  // Checkout
+  if (has(s, 'checkout', 'pay', 'place order', 'finish')) {
+    $('drawer').classList.add('open');
+    return Object.keys(cart).length ? 'Your order is open. Send it on WhatsApp and the team will confirm.' : 'Your order is empty. Tell me what to add!';
+  }
+  
+  // Hours
+  if (has(s, 'open', 'hour', 'time', 'close', 'when')) {
+    return status() 
+      ? 'We are open now until 10 pm. We open every day from 7:30 am.'
+      : 'We are closed right now. We open at 7:30 am every day.';
+  }
+  
+  // Location
+  if (has(s, 'where', 'location', 'address', 'direction', 'find you', 'map')) {
+    return 'Hifadhi House, ICD Road, Nairobi (off Mombasa Road).\nUse the “Get directions” button in the Come by section.';
+  }
+  
+  // Phone
+  if (has(s, 'phone', 'call', 'number', 'contact', 'whatsapp')) {
+    return 'Call or WhatsApp us on 0117 974420.';
+  }
+  
+  // Booking
+  if (has(s, 'book', 'reserv', 'table')) {
+    location.hash = '#visit';
+    return 'The booking form is in the Come by section. Fill it and it sends straight to WhatsApp.';
+  }
+  
+  // Wine
+  if (has(s, 'wine', 'red', 'white', 'rose', 'rosé', 'sparkling', 'bubbly') && !has(s, 'milkshake', 'tea', 'coffee')) {
+    const f = Object.keys(PAIRS).find(k => k.toLowerCase().split(/[ /]/).some(w => w.length > 3 && s.includes(w)));
+    return f ? `With ${f.toLowerCase()}: ${PAIRS[f]}` : 'We have red, white, rosé and sparkling. Tell me what you’re eating (e.g. “wine for fish”) and I’ll suggest a style.';
+  }
+  
+  // Best value
+  if (has(s, 'cheap', 'budget', 'affordable', 'least', 'value', 'best value')) {
+    const cheap = [...MENU]
+      .filter(m => ['Mains','Fish','Rice & Ugali','Breakfast'].includes(m.cat) && m.price)
+      .sort((a,b) => a.price - b.price)
+      .slice(0, 4);
+    return 'Best value right now:\n' + cheap.map(m => `• ${m.name} – ${KES(m.price)}`).join('\n');
+  }
+  
+  // Recommendations
+  if (has(s, 'recommend', 'suggest', 'popular', 'best', 'special', 'hungry', 'what should')) {
+    return 'Popular choices:\n• Half chicken + chips (Ksh 700)\n• Grilled salmon & rice (Ksh 1,850)\n• Full breakfast (Ksh 450)\n• Pilau (Ksh 400)\n\nWant me to add one for you?';
+  }
+  
+  // Kids
+  if (has(s, 'kid', 'child', 'children')) {
+    return 'Yes, we have a kids’ menu and high chairs. Just let the team know when you arrive or note it in your booking.';
+  }
+  
+  // Music
+  if (has(s, 'music', 'live', 'band')) {
+    return 'We often have live music. Call 0117 974420 for the current line-up and nights.';
+  }
+  
+  // Vegetarian
+  if (has(s, 'vegetarian', 'vegan', 'veggie')) {
+    return 'Good options: Pilau, ugali with beans, chips masala, fruit salad, samosas, omelette, and many sides. Ask the kitchen for meat-free versions.';
+  }
+  
+  // Greetings
+  if (has(s, 'hi', 'hello', 'hey', 'jambo', 'habari', 'karibu')) {
+    return 'Jambo! 🌿 What can I get you today?';
+  }
+  
+  if (has(s, 'thank', 'asante')) {
+    return 'Karibu sana! Anything else?';
+  }
+  
+  // Menu overview
+  if (has(s, 'menu', 'food', 'eat', 'what do you have')) {
+    return 'We serve: Breakfast, Coffee, Mains, Fish, Rice & Ugali, Snacks, Soft Drinks, Wine, Whiskey, Spirits, Beer & Cider, and Cocktails.\n\nName a category and I’ll list it with prices.';
+  }
+  
+  return 'I can help with the menu, prices, wine pairing, hours, directions, bookings and your order.\n\nTry one of the buttons below or just type what you need!';
+}
+
+async function send(text) {
+  say(text, 'me');
+  const t = say('…', 'bot');
+  t.classList.add('typing');
+  await new Promise(ok => setTimeout(ok, 500 + Math.random()*400));
+  t.classList.remove('typing');
+  t.textContent = localReply(text);
+  log.scrollTop = log.scrollHeight;
+}
+</script>
+</body>
+</html>
