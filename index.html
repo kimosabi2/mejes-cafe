@@ -155,6 +155,7 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}}
 </style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌸%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -174,7 +175,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
 </header>
 
 <main id="top">
-  <!-- Flower SVG symbol -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="fl" viewBox="-50 -50 100 100">
       <g fill="currentColor">
@@ -189,7 +189,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
     </symbol>
   </svg>
 
-  <!-- HERO -->
   <div class="hero">
     <svg class="fl f1" aria-hidden="true"><use href="#fl"/></svg>
     <svg class="fl f2" aria-hidden="true"><use href="#fl"/></svg>
@@ -205,7 +204,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
     <div class="kente" aria-hidden="true"></div>
   </div>
 
-  <!-- MENU -->
   <section id="menu">
     <div class="wrap">
       <h2>The menu</h2>
@@ -216,7 +214,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
     </div>
   </section>
 
-  <!-- WINE & BAR -->
   <section class="wine" id="wine">
     <div class="wrap">
       <h2>Wine, whiskey and the full bar</h2>
@@ -259,7 +256,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
     </div>
   </section>
 
-  <!-- GARDEN -->
   <section class="amb" id="ambience">
     <div class="garden" id="garden">
       <div class="wrap">
@@ -270,7 +266,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
     </div>
   </section>
 
-  <!-- DELIVERY -->
   <section id="delivery" style="background:#fff">
     <div class="wrap visit">
       <div>
@@ -309,7 +304,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
     </div>
   </section>
 
-  <!-- EVENTS -->
   <section id="events">
     <div class="wrap">
       <h2>Host your event here</h2>
@@ -345,15 +339,14 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
     </div>
   </section>
 
-  <!-- VISIT -->
   <section id="visit">
     <div class="wrap visit">
       <div>
         <h2>Come by</h2>
         <ul class="facts">
           <li><b>Where</b> Hifadhi House, ICD Road, Nairobi</li>
-          <li><b>Opens</b> 7:30 am daily</li>
-          <li><b>Call</b> <a href="tel:+254117974420">0117 974420</a></li>
+          <li><b>Opens</b> 7:30 am – 5:30 pm daily</li>
+          <li><b>Call</b> <a href="tel:+254119662278">0119 662 278</a></li>
           <li><b>Good for</b> Brunch, happy-hour food, live music, kids’ menu</li>
           <li><b>Typical spend</b> Ksh 1,200–1,800 a person</li>
         </ul>
@@ -384,11 +377,10 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
 </main>
 
 <footer>
-  Mejes Café · Hifadhi House, ICD Road, Nairobi · 0117 974420<br>
+  Mejes Café · Hifadhi House, ICD Road, Nairobi · 0119 662 278<br>
   Made with African love.
 </footer>
 
-<!-- CART DRAWER -->
 <aside id="drawer" aria-label="Your order">
   <header>
     <b style="font:800 1.25rem var(--serif)">Your order</b>
@@ -403,7 +395,6 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
   </div>
 </aside>
 
-<!-- CHAT -->
 <button id="fab">Chat with Mejes</button>
 <section id="chat" aria-label="Chat assistant" style="padding:0">
   <div class="ch">
@@ -419,79 +410,127 @@ footer{background:var(--ink);color:#cfc7b6;padding:32px 0;text-align:center;font
 </section>
 
 <script>
-/* ===================== CONFIG ===================== */
-const PHONE_WA = '254117974420';
+const PHONE_WA = '254119662278';
 const OPEN_HOUR = 7.5;
-const CLOSE_HOUR = 22;
+const CLOSE_HOUR = 17.5;
 
-/* ===================== MENU DATA ===================== */
 const MENU = [
-  // Breakfast
-  {id:0, cat:'Breakfast', name:'Full breakfast', desc:'Boiled egg, sausage, toast & sides', price:450, img:'https://images.unsplash.com/photo-1533089867894-c4c7b8d1c2f0?w=200&h=200&fit=crop'},
-  {id:1, cat:'Breakfast', name:'Omelette', desc:'3-egg omelette with choice of fillings', price:280, img:'https://images.unsplash.com/photo-1510693206959-140aaad7cdd0?w=200&h=200&fit=crop'},
-  // Coffee
-  {id:2, cat:'Coffee', name:'Espresso', desc:'Single shot', price:200, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
-  {id:3, cat:'Coffee', name:'Americano', desc:'Single', price:250, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
-  {id:4, cat:'Coffee', name:'Cappuccino', desc:'Single', price:300, img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=200&fit=crop'},
-  {id:5, cat:'Coffee', name:'Latte', desc:'Smooth & creamy', price:320, img:'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=200&h=200&fit=crop'},
-  // Mains
-  {id:6, cat:'Mains', name:'Half chicken + ugali', desc:'Grilled half chicken with ugali', price:650, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
-  {id:7, cat:'Mains', name:'Half chicken + chips', desc:'With crispy chips', price:700, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
-  {id:8, cat:'Mains', name:'Quarter chicken + chips + salad', desc:'Perfect portion', price:550, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
-  {id:9, cat:'Mains', name:'Full cooked chicken', desc:'Whole bird, great for sharing', price:1100, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
-  {id:10, cat:'Mains', name:'Chicken curry', desc:'Served with rice or ugali', price:550, img:'https://images.unsplash.com/photo-1565557623262-b51c2513a695?w=200&h=200&fit=crop'},
-  {id:11, cat:'Mains', name:'Burger', desc:'Juicy beef or chicken burger with chips', price:750, img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop'},
-  {id:12, cat:'Mains', name:'Chips', desc:'Crispy golden fries', price:200, img:'https://images.unsplash.com/photo-1573080496689-880f3d0d8b55?w=200&h=200&fit=crop'},
-  {id:13, cat:'Mains', name:'Chips masala', desc:'Spicy masala fries', price:280, img:'https://images.unsplash.com/photo-1573080496689-880f3d0d8b55?w=200&h=200&fit=crop'},
-  // Fish
-  {id:14, cat:'Fish', name:'Medium fish with ugali', desc:'Fresh tilapia style', price:750, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
-  {id:15, cat:'Fish', name:'Medium fish with rice', desc:'With fragrant rice', price:800, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
-  {id:16, cat:'Fish', name:'Grilled salmon and rice', desc:'Premium salmon with mixed veg', price:1850, img:'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&h=200&fit=crop'},
-  // Rice & Ugali
-  {id:17, cat:'Rice & Ugali', name:'Pilau', desc:'Fragrant spiced rice', price:400, img:'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=200&h=200&fit=crop'},
-  {id:18, cat:'Rice & Ugali', name:'Rice', desc:'Plain white rice', price:200, img:'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&h=200&fit=crop'},
-  {id:19, cat:'Rice & Ugali', name:'Ugali with beef', desc:'Classic comfort', price:450, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
-  {id:20, cat:'Rice & Ugali', name:'Ugali with beans', desc:'Hearty & filling', price:300, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
-  // Snacks
-  {id:21, cat:'Snacks', name:'Samosas', desc:'Crispy beef or veg (2 pcs)', price:150, img:'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&h=200&fit=crop'},
-  {id:22, cat:'Snacks', name:'Fresh fruit salad', desc:'Seasonal fruits', price:300, img:'https://images.unsplash.com/photo-1564093497595-593b96bc6814?w=200&h=200&fit=crop'},
-  // Soft Drinks
-  {id:23, cat:'Soft Drinks', name:'Black tea', desc:'Kenyan tea', price:120, img:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&h=200&fit=crop'},
-  {id:24, cat:'Soft Drinks', name:'Milkshake', desc:'Vanilla or strawberry', price:380, img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&h=200&fit=crop'},
-  {id:25, cat:'Soft Drinks', name:'Soda', desc:'Assorted soft drinks', price:150, img:'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=200&h=200&fit=crop'},
-  {id:26, cat:'Soft Drinks', name:'Fresh juice', desc:'Orange, passion or mixed', price:250, img:'https://images.unsplash.com/photo-1621506280935-1f55a2b8d0f4?w=200&h=200&fit=crop'},
-  {id:27, cat:'Soft Drinks', name:'Mineral water', desc:'500ml', price:100, img:'https://images.unsplash.com/photo-1560023907-5e59648bfcc2?w=200&h=200&fit=crop'},
-  // Whiskey
-  {id:28, cat:'Whiskey', name:'Johnnie Walker Black Label', desc:'Tot / Bottle', price:950, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
-  {id:29, cat:'Whiskey', name:'Jameson', desc:'Tot / Bottle', price:850, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
-  {id:30, cat:'Whiskey', name:"Jack Daniel's", desc:'Tot / Bottle', price:900, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
-  {id:31, cat:'Whiskey', name:'Glenfiddich 12', desc:'Tot / Bottle', price:1400, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
-  {id:32, cat:'Whiskey', name:'Chivas Regal 12', desc:'Tot / Bottle', price:1100, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
-  // Wine
-  {id:33, cat:'Wine', name:'Red wine (glass)', desc:"Today's house red", price:850, img:'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop'},
-  {id:34, cat:'Wine', name:'Red wine (bottle)', desc:'Ask for labels', price:3200, img:'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop'},
-  {id:35, cat:'Wine', name:'White wine (glass)', desc:"Today's house white", price:850, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
-  {id:36, cat:'Wine', name:'White wine (bottle)', desc:'Ask for labels', price:3200, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
-  {id:37, cat:'Wine', name:'Rosé (bottle)', desc:'Perfect for brunch', price:3500, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
-  {id:38, cat:'Wine', name:'Sparkling (bottle)', desc:'Celebrations', price:4200, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
-  // Spirits
-  {id:39, cat:'Spirits', name:'Vodka', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:40, cat:'Spirits', name:'Gin and tonic', desc:'Classic G&T', price:750, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:41, cat:'Spirits', name:'Brandy', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:42, cat:'Spirits', name:'Tequila', desc:'Tot', price:800, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:43, cat:'Spirits', name:'Rum', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  // Beer & Cider
-  {id:44, cat:'Beer & Cider', name:'Tusker', desc:'500ml', price:350, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
-  {id:45, cat:'Beer & Cider', name:'White Cap', desc:'500ml', price:350, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
-  {id:46, cat:'Beer & Cider', name:'Guinness', desc:'500ml', price:400, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
-  {id:47, cat:'Beer & Cider', name:'Heineken', desc:'330ml', price:400, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
-  {id:48, cat:'Beer & Cider', name:'Savanna cider', desc:'330ml', price:380, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
-  // Cocktails
-  {id:49, cat:'Cocktails', name:'Dawa', desc:'Vodka, honey, lime – Kenyan classic', price:850, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:50, cat:'Cocktails', name:'Mojito', desc:'Fresh mint & lime', price:900, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:51, cat:'Cocktails', name:'Margarita', desc:'Classic or spicy', price:950, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:52, cat:'Cocktails', name:'Mimosa', desc:'Perfect brunch drink', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
-  {id:53, cat:'Cocktails', name:'Sangria', desc:'Fruit-packed', price:850, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'}
+  {id:0, cat:'Breakfast', name:'Full breakfast', desc:'Boiled egg, yam, sausage', price:400, img:'https://images.unsplash.com/photo-1533089867894-c4c7b8d1c2f0?w=200&h=200&fit=crop'},
+  {id:1, cat:'Breakfast', name:'Omelette', desc:'Fresh omelette', price:150, img:'https://images.unsplash.com/photo-1510693206959-140aaad7cdd0?w=200&h=200&fit=crop'},
+  {id:2, cat:'Breakfast', name:'2 Eggs fried', desc:'', price:120, img:'https://images.unsplash.com/photo-1510693206959-140aaad7cdd0?w=200&h=200&fit=crop'},
+  {id:3, cat:'Breakfast', name:'Boiled eggs', desc:'', price:50, img:'https://images.unsplash.com/photo-1510693206959-140aaad7cdd0?w=200&h=200&fit=crop'},
+  {id:4, cat:'Breakfast', name:'Pancake', desc:'', price:50, img:'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=200&fit=crop'},
+  {id:5, cat:'Breakfast', name:'Toast + yams', desc:'', price:80, img:'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&h=200&fit=crop'},
+  {id:6, cat:'Breakfast', name:'Yams', desc:'', price:80, img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=200&h=200&fit=crop'},
+  {id:7, cat:'Breakfast', name:'Sweet potatoes', desc:'', price:50, img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=200&h=200&fit=crop'},
+
+  {id:10, cat:'Coffee & Tea', name:'Americano (Large)', desc:'', price:500, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:11, cat:'Coffee & Tea', name:'Americano (Medium)', desc:'', price:300, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:12, cat:'Coffee & Tea', name:'Americano (Small)', desc:'', price:200, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:13, cat:'Coffee & Tea', name:'Cappuccino (Large)', desc:'', price:550, img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=200&fit=crop'},
+  {id:14, cat:'Coffee & Tea', name:'Cappuccino (Medium)', desc:'', price:350, img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=200&fit=crop'},
+  {id:15, cat:'Coffee & Tea', name:'Cappuccino (Small)', desc:'', price:200, img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=200&fit=crop'},
+  {id:16, cat:'Coffee & Tea', name:'Espresso (Medium)', desc:'', price:350, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:17, cat:'Coffee & Tea', name:'Espresso (Small)', desc:'', price:250, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:18, cat:'Coffee & Tea', name:'Latte', desc:'', price:300, img:'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=200&h=200&fit=crop'},
+  {id:19, cat:'Coffee & Tea', name:'White coffee', desc:'', price:300, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop'},
+  {id:20, cat:'Coffee & Tea', name:'Chai Dawa', desc:'', price:120, img:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&h=200&fit=crop'},
+  {id:21, cat:'Coffee & Tea', name:'Mixed tea', desc:'', price:60, img:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&h=200&fit=crop'},
+  {id:22, cat:'Coffee & Tea', name:'Mixed African Tea', desc:'', price:60, img:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&h=200&fit=crop'},
+  {id:23, cat:'Coffee & Tea', name:'Strong Tea', desc:'', price:40, img:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&h=200&fit=crop'},
+  {id:24, cat:'Coffee & Tea', name:'Black tea', desc:'', price:50, img:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&h=200&fit=crop'},
+  {id:25, cat:'Coffee & Tea', name:'Green tea', desc:'', price:150, img:'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&h=200&fit=crop'},
+  {id:26, cat:'Coffee & Tea', name:'Iced Tea', desc:'', price:120, img:'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&h=200&fit=crop'},
+
+  {id:30, cat:'Lunch', name:'½ chicken + ugali', desc:'Grilled half chicken with ugali', price:600, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:31, cat:'Lunch', name:'½ chicken + chips', desc:'With crispy chips', price:650, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:32, cat:'Lunch', name:'¼ chicken + chips + salad', desc:'', price:450, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:33, cat:'Lunch', name:'Full cooked chicken', desc:'Whole bird, great for sharing', price:1000, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:34, cat:'Lunch', name:'Quarter chicken', desc:'', price:220, img:'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=200&h=200&fit=crop'},
+  {id:35, cat:'Lunch', name:'Chicken Curry', desc:'Served with rice or ugali', price:400, img:'https://images.unsplash.com/photo-1565557623262-b51c2513a695?w=200&h=200&fit=crop'},
+  {id:36, cat:'Lunch', name:'Burger', desc:'', price:700, img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop'},
+  {id:37, cat:'Lunch', name:'Chapati + beef', desc:'', price:350, img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop'},
+  {id:38, cat:'Lunch', name:'Chapati + beans', desc:'', price:120, img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop'},
+  {id:39, cat:'Lunch', name:'Chapo ndengu', desc:'', price:90, img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop'},
+
+  {id:40, cat:'Fish', name:'Medium fish with ugali', desc:'', price:600, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
+  {id:41, cat:'Fish', name:'Medium fish with chips', desc:'', price:650, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
+  {id:42, cat:'Fish', name:'Fish Medium', desc:'', price:550, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
+  {id:43, cat:'Fish', name:'Fish Large', desc:'', price:750, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&h=200&fit=crop'},
+  {id:44, cat:'Fish', name:'Grilled salmon + rice mix veges', desc:'', price:1750, img:'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&h=200&fit=crop'},
+  {id:45, cat:'Fish', name:'Fish Fingers', desc:'Served with fries', price:650, img:'https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=200&h=200&fit=crop'},
+
+  {id:50, cat:'Sides', name:'Chips', desc:'Crispy golden fries', price:150, img:'https://images.unsplash.com/photo-1573080496689-880f3d0d8b55?w=200&h=200&fit=crop'},
+  {id:51, cat:'Sides', name:'Chips masala', desc:'Spicy masala fries', price:350, img:'https://images.unsplash.com/photo-1573080496689-880f3d0d8b55?w=200&h=200&fit=crop'},
+  {id:52, cat:'Sides', name:'Pilau', desc:'Fragrant spiced rice', price:350, img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&h=200&fit=crop'},
+  {id:53, cat:'Sides', name:'Rice', desc:'Plain white rice', price:120, img:'https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?w=200&h=200&fit=crop'},
+  {id:54, cat:'Sides', name:'Rice beans', desc:'', price:100, img:'https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?w=200&h=200&fit=crop'},
+  {id:55, cat:'Sides', name:'Rice beef', desc:'', price:350, img:'https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?w=200&h=200&fit=crop'},
+  {id:56, cat:'Sides', name:'Rice chicken', desc:'', price:300, img:'https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?w=200&h=200&fit=crop'},
+  {id:57, cat:'Sides', name:'Vegetable rice', desc:'', price:250, img:'https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?w=200&h=200&fit=crop'},
+  {id:58, cat:'Sides', name:'Mashed potatoes with beef', desc:'', price:450, img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=200&h=200&fit=crop'},
+  {id:59, cat:'Sides', name:'Mokimo', desc:'', price:250, img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=200&h=200&fit=crop'},
+  {id:60, cat:'Sides', name:'Ugali', desc:'', price:50, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:61, cat:'Sides', name:'Ugali with Beans', desc:'', price:80, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:62, cat:'Sides', name:'Ugali with Beef', desc:'Side with beef', price:400, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:63, cat:'Sides', name:'Ugali with Goatmeat', desc:'Side with goatmeat', price:450, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:64, cat:'Sides', name:'Ugali with Managu', desc:'', price:80, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:65, cat:'Sides', name:'Ugali with creamy greens', desc:'', price:190, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:66, cat:'Sides', name:'Ugali with scrambled eggs', desc:'', price:200, img:'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&h=200&fit=crop'},
+  {id:67, cat:'Sides', name:'Beef', desc:'', price:300, img:'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=200&h=200&fit=crop'},
+  {id:68, cat:'Sides', name:'Beans', desc:'', price:50, img:'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop'},
+  {id:69, cat:'Sides', name:'Ndengu', desc:'', price:50, img:'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop'},
+  {id:70, cat:'Sides', name:'Fried Veggies', desc:'', price:300, img:'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&h=200&fit=crop'},
+  {id:71, cat:'Sides', name:'Kachumbari', desc:'', price:80, img:'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&h=200&fit=crop'},
+  {id:72, cat:'Sides', name:'Spinach / Cabbage', desc:'', price:80, img:'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=200&h=200&fit=crop'},
+
+  {id:80, cat:'Snacks', name:'Samosa', desc:'', price:70, img:'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&h=200&fit=crop'},
+  {id:81, cat:'Snacks', name:'Sausage', desc:'', price:60, img:'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=200&h=200&fit=crop'},
+  {id:82, cat:'Snacks', name:'Smokie', desc:'', price:50, img:'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=200&h=200&fit=crop'},
+  {id:83, cat:'Snacks', name:'Chapati', desc:'', price:30, img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop'},
+  {id:84, cat:'Snacks', name:'Doughnut', desc:'', price:40, img:'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&h=200&fit=crop'},
+  {id:85, cat:'Snacks', name:'Mandazi', desc:'', price:15, img:'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&h=200&fit=crop'},
+  {id:86, cat:'Snacks', name:'Fresh Fruit Salad', desc:'', price:100, img:'https://images.unsplash.com/photo-1564093497595-593b96bc1d63?w=200&h=200&fit=crop'},
+  {id:87, cat:'Snacks', name:'Ice Cream', desc:'', price:250, img:'https://images.unsplash.com/photo-1563805042-7684c019e1b3?w=200&h=200&fit=crop'},
+  {id:88, cat:'Snacks', name:'Honey', desc:'', price:50, img:'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=200&h=200&fit=crop'},
+
+  {id:90, cat:'Soft Drinks', name:'Chocolate milk', desc:'', price:100, img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&h=200&fit=crop'},
+  {id:91, cat:'Soft Drinks', name:'Glass soda', desc:'', price:50, img:'https://images.unsplash.com/photo-1581006852262-e4307cf6283a?w=200&h=200&fit=crop'},
+  {id:92, cat:'Soft Drinks', name:'Plastic soda', desc:'', price:100, img:'https://images.unsplash.com/photo-1581006852262-e4307cf6283a?w=200&h=200&fit=crop'},
+  {id:93, cat:'Soft Drinks', name:'Water (500ml)', desc:'', price:70, img:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=200&h=200&fit=crop'},
+  {id:94, cat:'Soft Drinks', name:'Milkshake (Vanilla)', desc:'', price:350, img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&h=200&fit=crop'},
+  {id:95, cat:'Soft Drinks', name:'Milkshake (Strawberry)', desc:'', price:350, img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&h=200&fit=crop'},
+
+  {id:100, cat:'Wine', name:'Red wine (glass)', desc:"Today's house red", price:850, img:'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop'},
+  {id:101, cat:'Wine', name:'Red wine (bottle)', desc:'Ask for labels', price:3200, img:'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop'},
+  {id:102, cat:'Wine', name:'White wine (glass)', desc:"Today's house white", price:850, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+  {id:103, cat:'Wine', name:'White wine (bottle)', desc:'Ask for labels', price:3200, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+  {id:104, cat:'Wine', name:'Rosé (bottle)', desc:'Perfect for brunch', price:3500, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+  {id:105, cat:'Wine', name:'Sparkling (bottle)', desc:'Celebrations', price:4200, img:'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=200&h=200&fit=crop'},
+
+  {id:110, cat:'Whiskey', name:'Johnnie Walker Black Label', desc:'Tot / Bottle', price:950, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:111, cat:'Whiskey', name:'Jameson', desc:'Tot / Bottle', price:850, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:112, cat:'Whiskey', name:"Jack Daniel's", desc:'Tot / Bottle', price:900, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:113, cat:'Whiskey', name:'Glenfiddich 12', desc:'Tot / Bottle', price:1400, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+  {id:114, cat:'Whiskey', name:'Chivas Regal 12', desc:'Tot / Bottle', price:1100, img:'https://images.unsplash.com/photo-1569529465841-dfecdabdd32b?w=200&h=200&fit=crop'},
+
+  {id:120, cat:'Spirits', name:'Vodka', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:121, cat:'Spirits', name:'Gin and tonic', desc:'Classic G&T', price:750, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:122, cat:'Spirits', name:'Brandy', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:123, cat:'Spirits', name:'Tequila', desc:'Tot', price:800, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:124, cat:'Spirits', name:'Rum', desc:'Tot', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+
+  {id:130, cat:'Beer & Cider', name:'Tusker', desc:'500ml', price:350, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:131, cat:'Beer & Cider', name:'White Cap', desc:'500ml', price:350, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:132, cat:'Beer & Cider', name:'Guinness', desc:'500ml', price:400, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:133, cat:'Beer & Cider', name:'Heineken', desc:'330ml', price:400, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+  {id:134, cat:'Beer & Cider', name:'Savanna cider', desc:'330ml', price:380, img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=200&fit=crop'},
+
+  {id:140, cat:'Cocktails', name:'Dawa', desc:'Vodka, honey, lime – Kenyan classic', price:850, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:141, cat:'Cocktails', name:'Mojito', desc:'Fresh mint & lime', price:900, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:142, cat:'Cocktails', name:'Margarita', desc:'Classic or spicy', price:950, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:143, cat:'Cocktails', name:'Mimosa', desc:'Perfect brunch drink', price:700, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'},
+  {id:144, cat:'Cocktails', name:'Sangria', desc:'Fruit-packed', price:850, img:'https://images.unsplash.com/photo-1514362545851-5193dae294fd?w=200&h=200&fit=crop'}
 ];
 
 const PAIRS = {
@@ -504,26 +543,25 @@ const PAIRS = {
   'Dessert': 'A sweet sparkling, or just coffee.'
 };
 
-const cats = ['All', ...new Set(MENU.map(m => m.cat))];
+const CAT_ORDER = ['All','Breakfast','Coffee & Tea','Lunch','Fish','Sides','Snacks','Soft Drinks','Wine','Whiskey','Spirits','Beer & Cider','Cocktails'];
+const cats = CAT_ORDER.filter(c => c === 'All' || MENU.some(m => m.cat === c));
 const ALC = ['Whiskey','Wine','Spirits','Beer & Cider','Cocktails'];
 const KES = n => n ? 'Ksh ' + n.toLocaleString() : 'Ask';
 const $ = id => document.getElementById(id);
 
 let cat = 'All', q = '', cart = {};
 
-/* ===================== STATUS ===================== */
 function status() {
   const t = new Date(new Date().toLocaleString('en-US', {timeZone: 'Africa/Nairobi'}));
   const h = t.getHours() + t.getMinutes()/60;
   const on = h >= OPEN_HOUR && h < CLOSE_HOUR;
   $('dot').className = 'dot' + (on ? ' on' : '');
-  $('stat').textContent = on ? 'Open now · until 10 pm' : 'Closed · opens 7:30 am';
+  $('stat').textContent = on ? 'Open now · until 5:30 pm' : 'Closed · opens 7:30 am';
   return on;
 }
 status();
 setInterval(status, 60000);
 
-/* ===================== MENU RENDER ===================== */
 function renderTabs() {
   $('tabs').innerHTML = cats.map(c => 
     `<button class="tab" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`
@@ -537,7 +575,7 @@ function renderMenu() {
   );
   $('items').innerHTML = list.length ? list.map(m => `
     <li class="item">
-      <img src="${m.img}" alt="${m.name}" loading="lazy">
+      <img src="${m.img}" alt="${m.name}" loading="lazy" onerror="this.remove()">
       <div class="info">
         <span class="n">${m.name}</span>
         ${m.desc ? `<span class="d">${m.desc}</span>` : ''}
@@ -566,9 +604,14 @@ $('items').onclick = e => {
 renderTabs();
 renderMenu();
 
-/* ===================== CART ===================== */
 function wa(msg) {
-  window.open(`https://wa.me/${PHONE_WA}?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open('https://wa.me/' + PHONE_WA + '?text=' + encodeURIComponent(msg), '_blank');
+  toast('WhatsApp is opening. Press Send there to complete your request.');
+}
+function toast(t) {
+  const d = document.createElement('div'); d.textContent = t; d.setAttribute('role','status');
+  d.style.cssText = 'position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#16352a;color:#fff;padding:12px 18px;border-radius:12px;z-index:99;max-width:90%;box-shadow:0 6px 20px #0005';
+  document.body.appendChild(d); setTimeout(() => d.remove(), 6000);
 }
 
 function add(id, n = 1) {
@@ -581,12 +624,14 @@ function totals() {
   const ids = Object.keys(cart);
   let sum = 0, unp = 0, alc = false;
   const lines = ids.map(i => {
-    const m = MENU[i], c = cart[i];
+    const m = MENU.find(x => x.id == i);
+    if (!m) return '';
+    const c = cart[i];
     if (m.price) sum += m.price * c;
     else unp++;
     if (ALC.includes(m.cat)) alc = true;
     return `${c} × ${m.name}${m.price ? ` (${KES(m.price * c)})` : ' (price to confirm)'}`;
-  });
+  }).filter(Boolean);
   return {ids, lines, sum, unp, alc};
 }
 
@@ -594,7 +639,7 @@ function renderCart() {
   const t = totals();
   $('cc').textContent = t.ids.reduce((s, i) => s + cart[i], 0);
   $('cartlist').innerHTML = t.ids.length ? t.ids.map(i => {
-    const m = MENU[i];
+    const m = MENU.find(x => x.id == i);
     return `<li>
       <span>${m.name}<br><small>${KES(m.price * cart[i])}</small></span>
       <span class="q">
@@ -643,7 +688,6 @@ $('dform').onsubmit = e => {
 
 renderCart();
 
-/* ===================== EVENTS ===================== */
 let evType = '';
 $('evgrid').onclick = e => {
   const b = e.target.closest('.ev');
@@ -662,7 +706,6 @@ $('evform').onsubmit = e => {
   wa(`EVENT ENQUIRY\n\nType: ${evType}\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nDate: ${f.get('date')}\nGuests: ${f.get('guests')}\nExtras: ${f.getAll('x').join(', ') || 'None'}\nNote: ${f.get('note') || 'None'}`);
 };
 
-/* ===================== GARDEN + MOODS ===================== */
 const GC = ['#b3321c','#e3a72f','#e88fa8','#ffffff','#8e5aa8'];
 $('garden').onclick = e => {
   const g = $('garden'), r = g.getBoundingClientRect();
@@ -708,7 +751,6 @@ $('browse').onclick = e => {
   }
 };
 
-/* ===================== WINE PAIRING + BOOKING ===================== */
 $('pairbtn').onclick = () => {
   const v = $('food').value;
   $('pairout').textContent = v ? PAIRS[v] : 'Choose a dish first.';
@@ -721,7 +763,6 @@ $('resv').onsubmit = e => {
   wa(msg);
 };
 
-/* ===================== MOBILE NAV ===================== */
 $('ham').onclick = () => $('navlinks').classList.toggle('open');
 $('navlinks').onclick = e => {
   if (e.target.tagName === 'A' || e.target.classList.contains('cartbtn')) {
@@ -729,7 +770,6 @@ $('navlinks').onclick = e => {
   }
 };
 
-/* ===================== CHATBOT ===================== */
 const log = $('log'), chat = $('chat'), fab = $('fab');
 const CHIPS = ['What is open now?', 'Whiskey list', 'Wine suggestions', 'Delivery', 'Book an event', 'Best value meals'];
 
@@ -781,20 +821,18 @@ function has(s, ...w) {
 function localReply(text) {
   const s = text.toLowerCase().replace('whisky', 'whiskey');
   
-  // Delivery
   if (has(s, 'deliver', 'bring to', 'home') && !has(s, 'add ')) {
     $('delivery').scrollIntoView({behavior:'smooth'});
     return 'Yes, we deliver! Add your items from the menu, then fill the delivery form. It goes straight to our team on WhatsApp and they confirm the fee and timing. I scrolled you there.';
   }
   
-  // Events
   if (has(s, 'event', 'party', 'birthday', 'wedding', 'corporate', 'function', 'proposal', 'shower')) {
     $('events').scrollIntoView({behavior:'smooth'});
     return 'We love hosting events! Choose a type and fill the form below. Flowers, live music and bar packages are all available.';
   }
   
-  // Category list
-  const dc = cats.find(c => [...ALC, 'Soft Drinks', 'Coffee', 'Breakfast', 'Mains', 'Fish'].includes(c) && s.includes(c.toLowerCase().split(' ')[0]));
+  if (/\bdrinks?\b/.test(s) && !s.includes('soft')) return 'Our bar has Wine, Whiskey, Spirits, Beer & Cider and Cocktails, plus Coffee & Tea and Soft Drinks. Name one and I’ll list it with prices.';
+  const dc = cats.find(c => c !== 'All' && s.includes(c.toLowerCase().split(' ')[0]));
   if (dc && !has(s, ' for ', ' with ', 'pair', 'eating', 'add')) {
     cat = dc;
     renderTabs();
@@ -802,9 +840,10 @@ function localReply(text) {
     return `${dc}:\n` + MENU.filter(m => m.cat === dc).map(m => `• ${m.name}: ${KES(m.price)}`).join('\n') + '\n\nSay “add [name]” to put one in your order.';
   }
   
-  // Add to order
   if (has(s, 'add ', 'order ', 'i want', 'i will have', "i'll have", 'give me')) {
-    const m = MENU.find(m => s.includes(m.name.toLowerCase().split(' ')[0]));
+    const words = s.replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w => w.length>2 && !['add','the','and','give','want','will','have','order','please'].includes(w));
+    let m = null, best = 0;
+    MENU.forEach(x => { const nm = x.name.toLowerCase(); let sc = words.filter(w => nm.includes(w)).length; if (nm.includes('½') && s.includes('half')) sc += 2; if (sc > best) { best = sc; m = x; } });
     if (m) {
       const n = +(s.match(/\b(\d+)\b/) || [0, 1])[1] || 1;
       add(m.id, n);
@@ -813,72 +852,60 @@ function localReply(text) {
     return 'Which dish? Try “add pilau” or “add half chicken”.';
   }
   
-  // Checkout
   if (has(s, 'checkout', 'pay', 'place order', 'finish')) {
     $('drawer').classList.add('open');
     return Object.keys(cart).length ? 'Your order is open. Send it on WhatsApp and the team will confirm.' : 'Your order is empty. Tell me what to add!';
   }
   
-  // Hours
   if (has(s, 'open', 'hour', 'time', 'close', 'when')) {
     return status() 
-      ? 'We are open now until 10 pm. We open every day from 7:30 am.'
-      : 'We are closed right now. We open at 7:30 am every day.';
+      ? 'We are open now until 5:30 pm. We open every day from 7:30 am to 5:30 pm.'
+      : 'We are closed right now. We open at 7:30 am every day (until 5:30 pm).';
   }
   
-  // Location
   if (has(s, 'where', 'location', 'address', 'direction', 'find you', 'map')) {
     return 'Hifadhi House, ICD Road, Nairobi (off Mombasa Road).\nUse the “Get directions” button in the Come by section.';
   }
   
-  // Phone
   if (has(s, 'phone', 'call', 'number', 'contact', 'whatsapp')) {
-    return 'Call or WhatsApp us on 0117 974420.';
+    return 'Call or WhatsApp us on 0119 662 278.';
   }
   
-  // Booking
   if (has(s, 'book', 'reserv', 'table')) {
     location.hash = '#visit';
     return 'The booking form is in the Come by section. Fill it and it sends straight to WhatsApp.';
   }
   
-  // Wine
   if (has(s, 'wine', 'red', 'white', 'rose', 'rosé', 'sparkling', 'bubbly') && !has(s, 'milkshake', 'tea', 'coffee')) {
     const f = Object.keys(PAIRS).find(k => k.toLowerCase().split(/[ /]/).some(w => w.length > 3 && s.includes(w)));
     return f ? `With ${f.toLowerCase()}: ${PAIRS[f]}` : 'We have red, white, rosé and sparkling. Tell me what you’re eating (e.g. “wine for fish”) and I’ll suggest a style.';
   }
   
-  // Best value
   if (has(s, 'cheap', 'budget', 'affordable', 'least', 'value', 'best value')) {
     const cheap = [...MENU]
-      .filter(m => ['Mains','Fish','Rice & Ugali','Breakfast'].includes(m.cat) && m.price)
+      .filter(m => ['Lunch','Fish','Sides','Breakfast'].includes(m.cat) && m.price)
       .sort((a,b) => a.price - b.price)
       .slice(0, 4);
     return 'Best value right now:\n' + cheap.map(m => `• ${m.name} – ${KES(m.price)}`).join('\n');
   }
   
-  // Recommendations
   if (has(s, 'recommend', 'suggest', 'popular', 'best', 'special', 'hungry', 'what should')) {
-    return 'Popular choices:\n• Half chicken + chips (Ksh 700)\n• Grilled salmon & rice (Ksh 1,850)\n• Full breakfast (Ksh 450)\n• Pilau (Ksh 400)\n\nWant me to add one for you?';
+    return 'Popular choices:\n• ½ chicken + ugali (Ksh 600)\n• Medium fish with ugali (Ksh 600)\n• Full breakfast (Ksh 400)\n• Pilau (Ksh 350)\n\nWant me to add one for you?';
   }
   
-  // Kids
   if (has(s, 'kid', 'child', 'children')) {
     return 'Yes, we have a kids’ menu and high chairs. Just let the team know when you arrive or note it in your booking.';
   }
   
-  // Music
   if (has(s, 'music', 'live', 'band')) {
-    return 'We often have live music. Call 0117 974420 for the current line-up and nights.';
+    return 'We often have live music. Call 0119 662 278 for the current line-up and nights.';
   }
   
-  // Vegetarian
   if (has(s, 'vegetarian', 'vegan', 'veggie')) {
     return 'Good options: Pilau, ugali with beans, chips masala, fruit salad, samosas, omelette, and many sides. Ask the kitchen for meat-free versions.';
   }
   
-  // Greetings
-  if (has(s, 'hi', 'hello', 'hey', 'jambo', 'habari', 'karibu')) {
+  if (/\b(hi|hello|hey|jambo|habari|karibu)\b/.test(s)) {
     return 'Jambo! 🌿 What can I get you today?';
   }
   
@@ -886,9 +913,8 @@ function localReply(text) {
     return 'Karibu sana! Anything else?';
   }
   
-  // Menu overview
   if (has(s, 'menu', 'food', 'eat', 'what do you have')) {
-    return 'We serve: Breakfast, Coffee, Mains, Fish, Rice & Ugali, Snacks, Soft Drinks, Wine, Whiskey, Spirits, Beer & Cider, and Cocktails.\n\nName a category and I’ll list it with prices.';
+    return 'We serve: Breakfast, Coffee & Tea, Lunch, Fish, Sides, Snacks, Soft Drinks, Wine, Whiskey, Spirits, Beer & Cider, and Cocktails.\n\nName a category and I’ll list it with prices.';
   }
   
   return 'I can help with the menu, prices, wine pairing, hours, directions, bookings and your order.\n\nTry one of the buttons below or just type what you need!';
@@ -903,6 +929,9 @@ async function send(text) {
   t.textContent = localReply(text);
   log.scrollTop = log.scrollHeight;
 }
+const today = new Date().toLocaleDateString('en-CA', {timeZone:'Africa/Nairobi'});
+document.querySelectorAll('input[type=date]').forEach(i => i.min = today);
+document.querySelectorAll('#resv input[type=time], #dform input[type=time]').forEach(i => { i.min = '07:30'; i.max = '17:30'; });
 </script>
 </body>
 </html>
